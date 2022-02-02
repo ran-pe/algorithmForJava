@@ -2,7 +2,6 @@ package Chapter1_String;
 
 import java.util.Scanner;
 
-public class problem1 {
 /*
 [문자 찾기]
 
@@ -23,6 +22,7 @@ c
 ▣ 출력예제 1
 2
 */
+public class problem1 {
 
     public static long countChar(String str, char ch) {
         str = str.toUpperCase();
