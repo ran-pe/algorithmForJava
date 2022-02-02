@@ -1,5 +1,7 @@
 package Chapter1_String;
 
+import java.util.Scanner;
+
 /*
 [문자열 압축]
 알파벳 대문자로 이루어진 문자열을 입력받아 같은 문자가 연속으로 반복되는 경우 반복되는
@@ -20,6 +22,17 @@ K2HS7E
 */
 public class problem11 {
 
+    public static String solution(String str) {
+        String answer = "";
 
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+
+        System.out.println(solution(str));
+    }
 
 }

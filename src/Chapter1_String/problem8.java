@@ -1,5 +1,7 @@
 package Chapter1_String;
 
+import java.util.Scanner;
+
 /*
 [유효한 팰린드롬]
 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 팰린드롬이라고 합니다.
@@ -22,6 +24,22 @@ YES
 */
 public class problem8 {
 
+    public static String solution(String str) {
+        String answer = "NO";
+        str = str.toUpperCase().replaceAll("[^A-Z]","");
+        String tmp = new StringBuilder(str).reverse().toString();
+        if(str.equals(tmp)) {
+            return "YES";
+        }
 
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+
+        System.out.println(solution(str));
+    }
 
 }

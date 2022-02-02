@@ -1,5 +1,7 @@
 package Chapter1_String;
 
+import java.util.Scanner;
+
 /*
 [암호]
 현수는 영희에게 알파벳 대문자로 구성된 비밀편지를 매일 컴퓨터를 이용해 보냅니다.
@@ -40,6 +42,17 @@ COOL
 */
 public class problem12 {
 
+    public static String solution(String str) {
+        String answer = "";
 
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+
+        System.out.println(solution(str));
+    }
 
 }

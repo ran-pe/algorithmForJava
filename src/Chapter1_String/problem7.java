@@ -1,5 +1,7 @@
 package Chapter1_String;
 
+import java.util.Scanner;
+
 /*
 [회문 문자열]
 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 회문 문자열이라고 합니다.
@@ -21,6 +23,34 @@ YES
 */
 public class problem7 {
 
+    public static String solution2(String str) {
+        String answer = "YES";
+        String tmp = new StringBuilder(str).reverse().toString();
+        if(!str.equalsIgnoreCase(tmp)) {
+            return "NO";
+        }
 
+        return answer;
+    }
+
+    public static String solution(String str) {
+        String answer = "YES";
+        str = str.toUpperCase();
+        int len = str.length();
+        for (int i = 0; i < len / 2; i++) {
+            if (str.charAt(i) != str.charAt(len - i - 1)) {
+                return "NO";
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+
+        System.out.println(solution2(str));
+    }
 
 }

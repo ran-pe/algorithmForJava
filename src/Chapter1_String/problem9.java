@@ -1,5 +1,7 @@
 package Chapter1_String;
 
+import java.util.Scanner;
+
 /*
 [숫자만 추출]
 문자와 숫자가 섞여있는 문자열이 주어지면 그 중 숫자만 추출하여 그 순서대로 자연수를 만
@@ -22,6 +24,34 @@ g0en2T0s8eSoft
 */
 public class problem9 {
 
+    public static int solution2(String str) {
+        String answer = "";
+        for (char x : str.toCharArray()) {
+            if(Character.isDigit(x)) {
+                answer+=x;
+            }
+        }
 
+        return Integer.parseInt(answer);
+    }
+
+    public static int solution(String str) {
+        // 문자 0 : 48, 문자 9: 57
+        int answer = 0;
+        for (char x : str.toCharArray()) {
+            if (x >= 48 && x <= 57) {
+                answer = answer * 10 + (x - 48);
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.next();
+
+        System.out.println(solution2(str));
+    }
 
 }
