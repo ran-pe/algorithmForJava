@@ -1,4 +1,4 @@
-package Chapter2_Array;
+package inflearn.Chapter2_Array;
 
 import java.util.Scanner;
 
