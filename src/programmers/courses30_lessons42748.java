@@ -1,4 +1,7 @@
 package programmers;
+
+import java.util.Arrays;
+
 /*
 
 https://programmers.co.kr/learn/courses/30/lessons/42748
@@ -31,10 +34,29 @@ array	commands	return
 */
 public class courses30_lessons42748 {
 
-    class Solution {
-        public int[] solution(int[] answers) {
-            int[] answer = {};
-            return answer;
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = {};
+        answer = new int[commands.length];
+
+        // 1.commands 만큼 반복
+        for (int l = 0; l < commands.length; l++) {
+            int[] command = commands[l];
+            int i = command[0] - 1, j = command[1], k = command[2] - 1;
+            int[] commandTemp = Arrays.copyOfRange(array, i, j);
+            Arrays.sort(commandTemp);
+            // 2. 결과를 answer에 넣는다
+            answer[l] = commandTemp[k];
         }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+
+        courses30_lessons42748 t = new courses30_lessons42748();
+        int[] array = {1, 5, 2, 6, 3, 7, 4};
+        int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
+        System.out.println(Arrays.toString(t.solution(array, commands)));
+
     }
 }
