@@ -42,7 +42,7 @@ answers	return
 public class courses30_lessons42840 {
 
     public int[] solution(int[] answers) {
-        int[] answer = {};
+        int[] answer;
 
         // 1. 학생들의 점수를 초기화
         int[] score = {0, 0, 0};
