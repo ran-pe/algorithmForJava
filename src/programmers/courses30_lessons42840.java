@@ -44,14 +44,18 @@ public class courses30_lessons42840 {
     public int[] solution(int[] answers) {
         int[] answer = {};
 
+        // 1. 학생들의 점수를 초기화
         int[] score = {0, 0, 0};
         ArrayList<Integer> maxScore = new ArrayList<>();
+
+        // 2. 학생들마다 패턴을 셋팅
         int[][] patterns = {
                 {1, 2, 3, 4, 5, 1, 2, 3, 4, 5},
                 {2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5},
                 {3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5}
         };
 
+        // 3. 학생의 수만큼 점수 계산
         for (int i = 0; i < answers.length; i++) {
             if (patterns[0][i % 5] == answers[i]) {
                 score[0]++;
@@ -66,15 +70,19 @@ public class courses30_lessons42840 {
             }
         }
 
+        // 4. 정렬을 하고 가장 큰 값(고득점)을 찾는다.
         int[] sortScore = score.clone();
         Arrays.sort(sortScore);
         int max = sortScore[2];
+
+        // 5. 학생들 점수를 고득점과 비교해서 고득점이면 maxScore에 넣는다
         for (int i = 0; i < score.length; i++) {
             if (score[i] == max) {
                 maxScore.add(i + 1);
             }
         }
 
+        // 6. 리턴값인 answer에 maxScore를 차례로 넣는다
         answer = new int[maxScore.size()];
         for (int i = 0; i < answer.length; i++) {
             answer[i] = maxScore.get(i);
