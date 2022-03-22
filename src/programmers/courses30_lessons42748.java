@@ -38,13 +38,20 @@ public class courses30_lessons42748 {
         int[] answer = {};
         answer = new int[commands.length];
 
-        // 1.commands 만큼 반복
         for (int l = 0; l < commands.length; l++) {
+            // 1. commands 만큼 반복한다.
             int[] command = commands[l];
+
+            // 2. i, j, k 를 셋팅한다.
             int i = command[0] - 1, j = command[1], k = command[2] - 1;
+
+            // 3. i부터 j까지 자른다.
             int[] commandTemp = Arrays.copyOfRange(array, i, j);
+
+            // 4. 정렬한다.
             Arrays.sort(commandTemp);
-            // 2. 결과를 answer에 넣는다
+
+            // 5. k번째의 수를 answer에 넣는다.
             answer[l] = commandTemp[k];
         }
 
