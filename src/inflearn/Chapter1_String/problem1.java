@@ -3,6 +3,8 @@ package inflearn.Chapter1_String;
 import java.util.Scanner;
 
 /*
+https://cote.inflearn.com/contest/10/problem/01-01
+
 [문자 찾기]
 
 한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 몇 개
@@ -22,7 +24,27 @@ c
 ▣ 출력예제 1
 2
 */
+
 public class problem1 {
+
+    public static int solution(String str, char ch) {
+        int answer = 0;
+
+        // 1. 대문자로 변경
+        str = str.toUpperCase();
+        ch = Character.toUpperCase(ch);
+
+        // 2. 입력받은 문자열에 특정 문자가 몇 개 존재하는지 카운트
+        for (char tmp : str.toCharArray()) {
+            if (tmp == ch) {
+                answer++;
+            }
+
+        }
+
+        return answer;
+
+    }
 
     public static long countChar(String str, char ch) {
         str = str.toUpperCase();
@@ -31,34 +53,11 @@ public class problem1 {
         return str.chars().filter(c -> c == finalCh).count();
     }
 
-    public static int solution(String str, char ch) {
-        int answer = 0;
-        str = str.toUpperCase();
-        ch = Character.toUpperCase(ch);
-        for(int i = 0; i < str.length(); i++) {
-            if(str.charAt(i) == ch) {
-                answer++;
-            }
-        }
-        return answer;
-    }
-
-    public static int solution2(String str, char ch) {
-        int answer = 0;
-        str = str.toUpperCase();
-        ch = Character.toUpperCase(ch);
-        for(char x : str.toCharArray()) {
-            if(x == ch) {
-                answer++;
-            }
-        }
-        return answer;
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
         char c = scanner.next().charAt(0);
-        System.out.println(solution2(str, c));
+        System.out.println(solution(str, c));
     }
 }

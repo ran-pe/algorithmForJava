@@ -2,6 +2,7 @@ package programmers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /*
 
@@ -42,42 +43,46 @@ answers	return
 public class courses30_lessons42840 {
 
     public int[] solution(int[] answers) {
-        int[] answer = {};
+        int[] answer = new int[3];
 
-        int[] score = {0, 0, 0};
-        ArrayList<Integer> maxScore = new ArrayList<>();
-        int[][] patterns = {
-                {1, 2, 3, 4, 5, 1, 2, 3, 4, 5},
-                {2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5},
-                {3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5}
-        };
+        // 1. 학생들의 정답 셋팅
+        int[] student1 = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
+        int[] student2 = {2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5};
+        int[] student3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 
+        // 2. 학생들 점수 계산
         for (int i = 0; i < answers.length; i++) {
-            if (patterns[0][i % 5] == answers[i]) {
-                score[0]++;
+            // 1번학생
+            if (answers[i] == student1[i % 5]) {
+                answer[0]++;
             }
-
-            if (patterns[1][i % 8] == answers[i]) {
-                score[1]++;
+            // 2번학생
+            if (answers[i] == student2[i % 8]) {
+                answer[1]++;
             }
-
-            if (patterns[2][i % 10] == answers[i]) {
-                score[2]++;
-            }
-        }
-
-        int[] sortScore = score.clone();
-        Arrays.sort(sortScore);
-        int max = sortScore[2];
-        for (int i = 0; i < score.length; i++) {
-            if (score[i] == max) {
-                maxScore.add(i + 1);
+            // 3번학생
+            if (answers[i] == student3[i % 10]) {
+                answer[2]++;
             }
         }
 
-        answer = new int[maxScore.size()];
+        // 3. 학생들 점수 중 고득점 계산
+        int[] sortedAnswer = answer.clone();
+        Arrays.sort(sortedAnswer);
+        int maxScore = sortedAnswer[2];
+
+        // 4. 오름차순으로 고득점을 가진 학생을 추출
+        List<Integer> arrays = new ArrayList<>();
         for (int i = 0; i < answer.length; i++) {
-            answer[i] = maxScore.get(i);
+            if (answer[i] == maxScore) {
+                arrays.add(i + 1);
+            }
+        }
+
+        // 5. array를 배열로 변환
+        answer = new int[arrays.size()];
+        for (int i = 0; i < arrays.size(); i++) {
+            answer[i] = arrays.get(i);
         }
 
         return answer;
@@ -87,7 +92,7 @@ public class courses30_lessons42840 {
     public static void main(String[] args) {
 
         courses30_lessons42840 t = new courses30_lessons42840();
-        int[] answers = {1, 2, 3, 4, 5};
+        int[] answers = {2, 1, 2, 3, 2};
         System.out.println(Arrays.toString(t.solution(answers)));
 
     }
