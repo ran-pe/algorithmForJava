@@ -23,37 +23,38 @@ study
 */
 public class problem3 {
 
-    public static String solution2(String str) {
+    public static String solution(String str) {
         String answer = "";
         int minValue = Integer.MIN_VALUE;
         int pos;
         while ((pos = str.indexOf(" ")) != -1) {
             String tmp = str.substring(0, pos);
             int len = tmp.length();
-            if(len > minValue) {
+            if (len > minValue) {
                 minValue = len;
                 answer = tmp;
             }
-            str = str.substring(pos+1);
+            str = str.substring(pos + 1);
         }
         // 마지막 단어 처리
-        if(str.length() > minValue) {
+        if (str.length() > minValue) {
             answer = str;
         }
         return answer;
     }
 
-    public static String solution(String str) {
+    public static String solution2(String str) {
         String answer = "";
-        int minValue = Integer.MIN_VALUE;
-        String[] word = str.split(" ");
-        for (String x : word) {
-            int len = x.length();
-            if (len > minValue) {
-                minValue = len;
-                answer = x;
+        int maxlength = 0;
+
+        String[] tempStr = str.split(" ");
+        for (String temp : tempStr) {
+            if (maxlength < temp.length()) {
+                maxlength = temp.length();
+                answer = temp;
             }
         }
+
         return answer;
     }
 
