@@ -50,7 +50,7 @@ public class problem7 {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
 
-        System.out.println(solution2(str));
+        System.out.println(solution(str));
     }
 
 }

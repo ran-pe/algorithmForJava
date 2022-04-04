@@ -22,24 +22,24 @@ S#T!EG*b@a
 public class problem5 {
 
     public static String solution(String str) {
-        String answer;
-        char[] s = str.toCharArray();
+        String result = "";
+        char[] tmp = str.toCharArray();
         int lt = 0, rt = str.length() - 1;
         while (lt < rt) {
-            if (!Character.isAlphabetic(s[lt])) {
+            if (!Character.isAlphabetic(tmp[lt])) {
                 lt++;
-            } else if (!Character.isAlphabetic(s[rt])) {
+            } else if (!Character.isAlphabetic(tmp[rt])) {
                 rt--;
             } else {
-                char tmp = s[lt];
-                s[lt] = s[rt];
-                s[rt] = tmp;
+                char c = tmp[lt];
+                tmp[lt] = tmp[rt];
+                tmp[rt] = c;
                 lt++;
                 rt--;
             }
         }
-        answer = String.valueOf(s);
-        return answer;
+        result = String.valueOf(tmp);
+        return result;
     }
 
     public static void main(String[] args) {
@@ -48,5 +48,4 @@ public class problem5 {
 
         System.out.println(solution(str));
     }
-
 }
