@@ -28,7 +28,7 @@ giB
 */
 public class problem4 {
 
-    public static ArrayList<String> solution2(int n, String[] str) {
+    public static ArrayList<String> solution3(int n, String[] str) {
         ArrayList<String> answer = new ArrayList<>();
         for (String x : str) {
             char[] s = x.toCharArray();
@@ -46,13 +46,27 @@ public class problem4 {
         return answer;
     }
 
-    public static ArrayList<String> solution(int n, String[] str) {
-        ArrayList<String> answer = new ArrayList<>();
-        for (String x : str) {
-            String tmp = new StringBuilder(x).reverse().toString();
-            answer.add(tmp);
+    public static ArrayList<String> solution2(int n, String[] list) {
+        ArrayList<String> result = new ArrayList<>();
+        for (String s : list) {
+            String tmp = new StringBuilder(s).reverse().toString();
+            result.add(tmp);
         }
-        return answer;
+        return result;
+    }
+
+    public static String[] solution(int n, String[] list) {
+        String[] result = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            char[] x = list[i].toCharArray();
+            String reverseStr = "";
+            for (int j = list[i].length(); j >= 1; j--) {
+                reverseStr += x[j - 1];
+            }
+            result[i] = reverseStr;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
@@ -62,7 +76,8 @@ public class problem4 {
         for (int i = 0; i < n; i++) {
             str[i] = scanner.next();
         }
-        for (String x : solution2(n, str)) {
+
+        for (String x : solution3(n, str)) {
             System.out.println(x);
         }
     }
