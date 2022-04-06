@@ -24,6 +24,27 @@ public class problem11 {
 
     public static String solution(String str) {
         String answer = "";
+        // 1. 맨 뒤에 빈 문자열 삽입
+        str = str + " ";
+
+        // 2. 문자열을 문자 array로 변환
+        char[] c = str.toCharArray();
+        int cnt = 1;
+        for (int i = 0; i < str.length() -1; i++) {
+            if (c[i] == c[i+1]) {
+                // 3. 반복문자면 카운트만 증가
+                cnt++;
+            } else {
+                // 4. 현재문자와 다음문자가 다르면(반복문자가 아니면) 해당문자를 저장
+                answer+= c[i];
+                // 5. 반복문자수가 1보다 크면 카운트도 저장
+                if(cnt > 1) {
+                    answer+= cnt;
+                }
+                // 6. cnt 초기화
+                cnt = 1;
+            }
+        }
 
         return answer;
     }
@@ -31,7 +52,6 @@ public class problem11 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
-
         System.out.println(solution(str));
     }
 

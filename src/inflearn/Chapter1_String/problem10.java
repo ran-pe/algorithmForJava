@@ -1,5 +1,6 @@
 package inflearn.Chapter1_String;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -25,16 +26,20 @@ public class problem10 {
     public static int[] solution(String str, char c) {
         int[] answer = new int[str.length()];
         int p = 1000;
+        // 1. 문자열의 문자와 입력된 문자가 같은지 비교
         for (int i = 0; i < str.length(); i++) {
+            // 2. 같으면 거리를 0으로 하고 리턴값에 저장
             if (str.charAt(i) == c) {
                 p = 0;
                 answer[i] = p;
             } else {
+                // 3. 다르면 거리를 증가하고 리턴값에 저장
                 p++;
                 answer[i] = p;
             }
         }
 
+        // 4. 뒤에서도 거리를 비교하여 저장된 값과 현재 값을 비교하여 작은값을 저장
         p = 1000;
         for (int i = str.length() - 1; i >= 0; i--) {
             if (str.charAt(i) == c) {
@@ -55,7 +60,6 @@ public class problem10 {
         for (int x : solution(str, c)) {
             System.out.print(x + " ");
         }
-
     }
 
 }

@@ -42,17 +42,30 @@ COOL
 */
 public class problem12 {
 
-    public static String solution(String str) {
+    public static String solution(String str, int n) {
         String answer = "";
+
+        for (int i = 0; i < n; i++) {
+            // 1. 문자열을 n만큼 잘라서 tmp에 저장
+            String tmp = str.substring(0, 7);
+            // 2. #은 1로 *은 0로 변환
+            tmp = tmp.replace("#", "1").replace("*", "0");
+            // 3. 2진수를 10진수로 변환
+            int num = Integer.parseInt(tmp, 2);
+            // 4. answer에 저장
+            answer += (char) num;
+            // 5. str을 n만큼 자름
+            str = str.substring(7);
+        }
 
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
         String str = scanner.next();
-
-        System.out.println(solution(str));
+        System.out.println(solution(str, n));
     }
 
 }
