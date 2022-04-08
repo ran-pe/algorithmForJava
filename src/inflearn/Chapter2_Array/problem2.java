@@ -21,14 +21,29 @@ import java.util.Scanner;
 */
 public class problem2 {
 
-    public static int solution(int n) {
-        int answer = 0;
+    public static int solution(int n, int[] arr) {
+        int answer = 1;
+        // 1. 첫번째 수를 max값으로 설정
+        int max = arr[0];
+        for (int i = 0; i < n; i++) {
+            // 2. 배열에 있는 값을 하나씩 max값과 비교
+            if (arr[i] > max) {
+                // 3. 입력된 수가 max값보다 크면 max값을 입력된 수로 변경하고 카운트 증가
+                max = arr[i];
+                answer++;
+            }
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        System.out.println(solution(n));
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        System.out.println(solution(n, arr));
     }
 }

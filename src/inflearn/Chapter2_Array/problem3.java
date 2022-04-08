@@ -33,14 +33,39 @@ D
 */
 public class problem3 {
 
-    public static int solution(int n) {
-        int answer = 0;
+    public static String solution(int n, int[] arr_a, int[] arr_b) {
+        String answer = "";
+        // 1. 게임 횟수만큼 반복
+        for (int i = 0; i < n; i++) {
+            // 2. A, B 승자 출력
+            if (arr_a[i] == 1 && arr_b[i] == 3 || arr_a[i] == 2 && arr_b[i] == 1 || arr_a[i] == 3 && arr_b[i] == 2) {
+                // A가 이길때
+                answer += "A";
+            } else if (arr_b[i] == 1 && arr_a[i] == 3 || arr_b[i] == 2 && arr_a[i] == 1 || arr_b[i] == 3 && arr_a[i] == 2) {
+                // B가 이길때
+                answer += "B";
+            } else {
+                //비길때
+                answer += "D";
+            }
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        System.out.println(solution(n));
+        int[] arr_a = new int[n];
+        int[] arr_b = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr_a[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            arr_b[i] = scanner.nextInt();
+        }
+
+        for (char x : solution(n, arr_a, arr_b).toCharArray()) {
+            System.out.println(x);
+        }
     }
 }

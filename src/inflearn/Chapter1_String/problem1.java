@@ -39,11 +39,8 @@ public class problem1 {
             if (tmp == ch) {
                 answer++;
             }
-
         }
-
         return answer;
-
     }
 
     public static long countChar(String str, char ch) {
@@ -52,7 +49,6 @@ public class problem1 {
         char finalCh = ch;
         return str.chars().filter(c -> c == finalCh).count();
     }
-
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
