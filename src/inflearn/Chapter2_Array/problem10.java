@@ -33,15 +33,48 @@ import java.util.Scanner;
 10
 */
 public class problem10 {
+    // x축 좌표
+    static int[] dx = {-1, 0, 1, 0};
+    // y축 좌표
+    static int[] dy = {0, 1, 0, -1};
 
-    public static int solution(int n) {
+    public static int solution(int n, int[][] arr) {
         int answer = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                boolean flag = true;
+                for (int k = 0; k < 4; k++) {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    System.out.println("nx: " + nx);
+                    System.out.println("ny: " + ny);
+//                    System.out.println("arr[nx][ny]: " + arr[nx][ny]);
+                    System.out.println("i: " + i);
+                    System.out.println("j: " + j);
+//                    System.out.println("arr[i][j]: " + arr[i][j]);
+                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] >= arr[i][j]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    answer++;
+                }
+            }
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        System.out.println(solution(n));
+        int[][] arr = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println(solution(n, arr));
     }
 }
