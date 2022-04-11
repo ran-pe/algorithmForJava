@@ -19,21 +19,12 @@ import java.util.Scanner;
 */
 public class problem4 {
 
-    public static void solution2(int n) {
-        int a = 1, b = 1, c;
-        System.out.print(a + " " + b + " ");
-        for (int i = 2; i < n; i++) {
-            c = a + b;
-            System.out.print(c + " ");
-            a = b;
-            b = c;
-        }
-    }
-
     public static int[] solution(int n) {
         int[] answer = new int[n];
+        // 1. 첫번째, 두번째 수는 1로 초기화
         answer[0] = 1;
         answer[1] = 1;
+        // 2. n만큼 반복하면서 앞의 2개의 수를 합한다.
         for (int i = 2; i < n; i++) {
             answer[i] = answer[i - 2] + answer[i - 1];
         }
@@ -43,9 +34,35 @@ public class problem4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-//        for (int x : solution(n)) {
-//            System.out.print(x + " ");
-//        }
-        solution2(n);
+        for (int x : solution(n)) {
+            System.out.print(x + " ");
+        }
+    }
+
+}
+
+class problem4_1 {
+
+    public static void solution(int n) {
+        int a = 1, b = 1, c;
+        // 1. 첫번째, 두번째 수를 출력
+        System.out.print(a + " " + b + " ");
+        // 2. n만큼 반복하면서 앞의 2개의 수를 합한다.
+        for (int i = 2; i < n; i++) {
+            c = a + b;
+            // 3. 합한 수를 출력
+            System.out.print(c + " ");
+            // 4. 숫자증가
+            a = b;
+            b = c;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        solution(n);
     }
 }

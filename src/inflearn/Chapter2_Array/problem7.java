@@ -31,14 +31,30 @@ OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다
 */
 public class problem7 {
 
-    public static int solution(int n) {
+    public static int solution(int n, int[] arr) {
         int answer = 0;
+        int cnt = 0;
+        // 1. n만큼 반복
+        for (int i = 0; i < n; i++) {
+            // 2. 정답이면 cnt 증가 및 answer에 합산
+            if (arr[i] == 1) {
+                cnt++;
+                answer += cnt;
+            } else {
+                // 3. 정답이 아니면 cnt는 0으로 초기화
+                cnt = 0;
+            }
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        System.out.println(solution(n));
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        System.out.println(solution(n, arr));
     }
 }

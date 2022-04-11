@@ -21,14 +21,33 @@ N명의 학생의 국어점수가 입력되면 각 학생의 등수를 입력된
 */
 public class problem8 {
 
-    public static int solution(int n) {
-        int answer = 0;
+    public static int[] solution(int n, int[] arr) {
+        int[] answer = new int[n];
+        // 1. n만큼 반복
+        for (int i = 0; i < n; i++) {
+            // 2. 등수는 1로 초기화
+            int cnt = 1;
+            // 3. 배열의 크기만큼 반복하면서 배열안의 수와 비교해서 큰 값이 있으면 cnt 증가
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] > arr[i]) {
+                    cnt++;
+                }
+            }
+            answer[i] = cnt;
+        }
         return answer;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        System.out.println(solution(n));
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        for (int x : solution(n, arr)) {
+            System.out.print(x + " ");
+        }
     }
 }
