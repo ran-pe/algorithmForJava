@@ -1,6 +1,6 @@
 package inflearn.Chapter2_Array;
 
-import java.util.*;
+import java.util.Scanner;
 
 /*
 [격자판 최대합]
@@ -31,7 +31,7 @@ N*N의 격자판이 주어지면 각 행의 합, 각 열의 합, 두 대각선�
 public class problem9 {
 
     public static int solution(int n, int[][] arr) {
-        int answer = -2147000000;
+        int answer = 0;
         int sum1 = 0, sum2 = 0;
         for (int i = 0; i < n; i++) {
             sum1 = sum2 = 0;
@@ -41,10 +41,10 @@ public class problem9 {
                 // 열 더하기
                 sum2 += arr[j][i];
             }
+            // 행과 열을 더한 값중에 최대값 저장
+            answer = Math.max(answer, sum1);
+            answer = Math.max(answer, sum2);
         }
-        // 행과 열을 더한 값중에 최대값 저장
-        answer = Math.max(answer, sum1);
-        answer = Math.max(answer, sum2);
 
         // 대각선 합
         sum1 = sum2 = 0;
