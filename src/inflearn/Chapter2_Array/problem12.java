@@ -33,25 +33,28 @@ public class problem12 {
 
     public static int solution(int n, int m, int[][] arr) {
         int answer = 0;
-        for(int i = 1; i <=n; i++) {
-            for(int j = 1; j <=n; j++) {
+        // i:멘토, j:멘티, k:테스트, s:등수
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
                 int cnt = 0;
-                for(int k = 0; k < m; k++) {
-                    int pi = 0, pj=0;
-                    for(int s = 0; s < n; s++) {
-                        if(arr[k][s] == i) {
+                for (int k = 0; k < m; k++) {
+                    int pi = 0, pj = 0;
+                    for (int s = 0; s < n; s++) {
+                        if (arr[k][s] == i) {
                             pi = s;
                         }
-                        if(arr[k][s] == j) {
+                        if (arr[k][s] == j) {
                             pj = s;
                         }
                     }
-                    if(pi < pj) {
+                    // k번 테스트에서의 등수비교(등수가 작아야 높은 등수)
+                    if (pi < pj) {
                         cnt++;
                     }
                 }
-                if(cnt == m) {
-                    answer ++;
+                // 모든 시험에서 등수가 앞서는지 확인
+                if (cnt == m) {
+                    answer++;
 //                    System.out.println(i + " " + j);
                 }
             }
@@ -64,8 +67,8 @@ public class problem12 {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[][] arr = new int[m][n];
-        for(int i = 0; i < m; i++) {
-            for(int j = 0; j < n; j++){
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 arr[i][j] = scanner.nextInt();
             }
         }

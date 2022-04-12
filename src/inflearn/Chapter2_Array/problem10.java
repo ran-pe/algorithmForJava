@@ -46,12 +46,7 @@ public class problem10 {
                 for (int k = 0; k < 4; k++) {
                     int nx = i + dx[k];
                     int ny = j + dy[k];
-                    System.out.println("nx: " + nx);
-                    System.out.println("ny: " + ny);
-//                    System.out.println("arr[nx][ny]: " + arr[nx][ny]);
-                    System.out.println("i: " + i);
-                    System.out.println("j: " + j);
-//                    System.out.println("arr[i][j]: " + arr[i][j]);
+                    // 경계선 처리를 먼저 해야 함
                     if (nx >= 0 && nx < n && ny >= 0 && ny < n && arr[nx][ny] >= arr[i][j]) {
                         flag = false;
                         break;
@@ -74,7 +69,6 @@ public class problem10 {
                 arr[i][j] = scanner.nextInt();
             }
         }
-
         System.out.println(solution(n, arr));
     }
 }

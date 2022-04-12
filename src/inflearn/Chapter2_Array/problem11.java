@@ -45,6 +45,7 @@ public class problem11 {
 
     public static int solution(int n, int[][] arr) {
         int answer = 0, max = 0;
+        // 1. i, j는 학생, k는 학년
         for (int i = 1; i <= n; i++) {
             int cnt = 0;
             for (int j = 1; j <= n; j++) {
